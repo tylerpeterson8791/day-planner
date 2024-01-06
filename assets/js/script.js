@@ -18,17 +18,31 @@ $(function () {
       console.log(timeBlockId, userInput)
     });
   
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. 
-  
-  //HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? 
-  
-  //How can Day.js be used to get the
-  // current hour in 24-hour time?
-  
+    //Declare Current hour
+    var currentHour = dayjs().hour();
 
+    //Console log to check, single military time value
+    console.log(currentHour)
+  
+    $(".time-block").each(function () {
+      //create variable for the block hour to compare to currentHour.  
+      //right now the format is "hour-14" so we need grab just the number value and not the "hour-" part
+      //parseInt will make it into a number, select save button hit $(this) and drill down to attr("id")
+      //we do this by using .split("-") to chop into an Array at the "-" (the word hour and the number) then we specify [1] since the number we need to compare is the second part
+      var blockHour = parseInt($(this).attr("id").split("-")[1]);
+  
+      // Compare block hour with the current hour and update classes accordingly
+      // If less than current hour then it's the past
+      if (blockHour < currentHour) {
+        $(this).addClass("past").removeClass("present future");
+      // If equal to current hour it's present
+      } else if (blockHour === currentHour) {
+        $(this).addClass("present").removeClass("past future");
+      //everything else is the future
+      } else {
+        $(this).addClass("future").removeClass("past present");
+      }
+    });
 
 
 
@@ -38,5 +52,8 @@ $(function () {
   //HINT: How can the id
   // attribute of each time-block be used to do this?
   //
+  
   // TODO: Add code to display the current date in the header of the page.
+
+  // TODO: The Mock-Up shows an "Appointment added to localstorage" message at top of page below break
 });
