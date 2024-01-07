@@ -17,6 +17,19 @@ $(function () {
       //Check to make sure this is working properly.
       console.log(timeBlockId, userInput)
     });
+
+    // Load saved data from local storage upon page load
+  $(".time-block").each(function () {
+    // Get the id of the time-block.  
+    //  FYI - The last time we used timeBlockId it was local to the function above.  We need to point and grab here again.
+    var timeBlockId = $(this).attr("id");
+
+    // Retrieve the user input from local storage using the time-block id as a key
+    var savedUserInput = localStorage.getItem(timeBlockId);
+
+    // Set the value of the textarea within the current time-block to the saved user input
+    $(this).find(".description").val(savedUserInput);
+  });
   
     //Declare Current hour
     var currentHour = dayjs().hour();
@@ -45,14 +58,6 @@ $(function () {
     });
 
 
-
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. 
-  
-  //HINT: How can the id
-  // attribute of each time-block be used to do this?
-  //
-  
   // TODO: Add code to display the current date in the header of the page.
 
   // TODO: The Mock-Up shows an "Appointment added to localstorage" message at top of page below break
