@@ -24,7 +24,7 @@ THEN the text for that event is saved in local storage
 WHEN I refresh the page
 THEN the saved events persist
 
-## Installation
+## Usage
 
 The user is presented open hour blocks from 9AM to 5PM.  Hours in the past are in gray, the current hour is in red and future blocks are in green.
 
@@ -32,7 +32,7 @@ The layout is simple with an open text area where the user can type freely and a
 
 The top of the page displays the current date and gives the user a confirmation once segments are saved.
 
-## Usage
+## Installation
 
 We were given starter code for this.  The HTML was almost completely ready as is.  I just coppied the Divs that contatined the hours and made 8 of them to represent every hour from 9AM-5PM.  Each has an ID for the hour, anything after 12 I used military time (i.e. 2PM = 14) to make things easier in the JS.
 
