@@ -17,10 +17,10 @@ $(function () {
     //declare new function of show save message
     function showSaveMessage() {
       var saveMessage = $("#saveMessage");
-      
+
       // Set the message text
       saveMessage.text("Saved to Local Storage");
-  
+
       // // Show the message for 5 seconds and take it away after.
       // Looked up fade in and out and sandwiched in a delay.
       saveMessage.fadeIn().delay(5000).fadeOut();
@@ -74,5 +74,5 @@ $(function () {
   // there was already a p tag with the ID of #currentDay in the starter HTML.  Just need to pop the var currentDay into that.
   $('#currentDay').text(currentDay)
 
-  // TODO: The Mock-Up shows an "Appointment added to localstorage" message at top of page below break
+ 
 });
